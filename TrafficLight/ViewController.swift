@@ -26,6 +26,14 @@ class ViewController: UIViewController {
         greenLight.alpha = lightOff
     }
     
+    override func viewWillLayoutSubviews() {
+        redLight.layer.cornerRadius = redLight.frame.width / 2
+        yellowLight.layer.cornerRadius = yellowLight.frame.width / 2
+        greenLight.layer.cornerRadius = greenLight.frame.width / 2
+        
+        signalSwitchButton.layer.cornerRadius = 10
+    }
+    
     @IBAction func signalSwitchButtonPressed() {
         if signalSwitchButton.currentTitle == "START" {
             signalSwitchButton.setTitle("NEXT", for: .normal)
@@ -43,14 +51,6 @@ class ViewController: UIViewController {
         } else {
             redLight.alpha = lightOn
         }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        redLight.layer.cornerRadius = redLight.frame.width / 2
-        yellowLight.layer.cornerRadius = yellowLight.frame.width / 2
-        greenLight.layer.cornerRadius = greenLight.frame.width / 2
-        
-        signalSwitchButton.layer.cornerRadius = 10
     }
 }
 

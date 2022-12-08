@@ -29,22 +29,22 @@ class ViewController: UIViewController {
     @IBAction func signalSwitchButtonPressed() {
         if signalSwitchButton.currentTitle == "START" {
             signalSwitchButton.setTitle("NEXT", for: .normal)
-            
+        }
+        
+        if redLight.alpha == lightOn {
+            redLight.alpha = lightOff
+            yellowLight.alpha = lightOn
+        } else if yellowLight.alpha == lightOn {
+            yellowLight.alpha = lightOff
+            greenLight.alpha = lightOn
+        } else if greenLight.alpha == lightOn {
+            greenLight.alpha = lightOff
             redLight.alpha = lightOn
-            
         } else {
-            if redLight.alpha == lightOn {
-                redLight.alpha = lightOff
-                yellowLight.alpha = lightOn
-            } else if yellowLight.alpha == lightOn {
-                yellowLight.alpha = lightOff
-                greenLight.alpha = lightOn
-            } else if greenLight.alpha == lightOn {
-                greenLight.alpha = lightOff
-                redLight.alpha = lightOn
-            }
+            redLight.alpha = lightOn
         }
     }
+    
     override func viewWillLayoutSubviews() {
         redLight.layer.cornerRadius = redLight.frame.width / 2
         yellowLight.layer.cornerRadius = yellowLight.frame.width / 2
